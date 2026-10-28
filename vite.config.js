@@ -7,7 +7,7 @@ import viteImagemin from 'vite-plugin-imagemin'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/invitacion-arnoll-paula/', // ruta del sitio de GitHub Pages (brando1998.github.io/invitacion-arnoll-paula/)
+  base: '/', // dominio propio (boda.brando.network) sirve desde la raíz
   plugins: [
     vue(),
     vueDevTools(),

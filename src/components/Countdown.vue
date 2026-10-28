@@ -117,7 +117,7 @@ onUnmounted(() => {
   padding: var(--spacing-medium) var(--spacing-small);
   border-radius: var(--border-radius);
   min-width: 80px;
-  flex: 0 1 100px;
+  flex: 0 1 auto;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
@@ -125,6 +125,7 @@ onUnmounted(() => {
   font-family: "Playfair Display", serif;
   font-size: var(--text-xl);
   color: var(--primary-color);
+  white-space: nowrap;
 }
 
 .label {
