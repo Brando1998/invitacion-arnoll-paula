@@ -1,15 +1,8 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import cornerOrnamentImage2 from "@/assets/watercolor/branch.png";
+import confirmBg from "@/assets/images/fondo-confirmacion.jpeg";
 import centerBottomOrnamentImage from "@/assets/svg/center-bottom-ornament-accent.svg";
 import heartImage from "@/assets/svg/heart.svg"; // Puedes usar otro ícono si quieres
-
-const cornerStyles = [
-  { top: "-18px", left: "-18px", transform: "rotate(0deg)" },
-  { top: "-18px", right: "-18px", transform: "scaleX(-1)" },
-  { bottom: "-18px", left: "-18px", transform: "scaleY(-1)" },
-  { bottom: "-18px", right: "-18px", transform: "scale(-1, -1)" },
-];
 
 const name = ref("");
 const cupo = ref("");
@@ -22,16 +15,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="invite-footer">
-    <img
-      v-for="(style, index) in cornerStyles"
-      :key="index"
-      :src="cornerOrnamentImage2"
-      :style="style"
-      class="corner-ornament"
-      alt="Decoración de esquina"
-    />
-
+  <div class="invite-footer" :style="{ backgroundImage: `url(${confirmBg})` }">
     <div class="shadow">
       <img class="ico" :src="heartImage" alt="heart" />
       <span class="title">Ten presente la siguiente información</span>
@@ -61,7 +45,11 @@ onMounted(() => {
   text-align: center;
   max-width: 600px;
   position: relative;
-    border-radius: 20px;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: var(--spacing-medium);
 }
 
 .shadow {
@@ -77,13 +65,6 @@ onMounted(() => {
 .ico {
   width: 80px;
   margin-bottom: var(--spacing-small);
-}
-
-.corner-ornament {
-  position: absolute;
-  width: 70px;
-  height: auto;
-  z-index: 1;
 }
 
 .center-ornament {

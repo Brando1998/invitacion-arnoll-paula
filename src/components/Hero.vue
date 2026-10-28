@@ -1,15 +1,11 @@
 <script setup>
 import heroImage from "@/assets/images/hero.jpg";
-import branchImage from "@/assets/watercolor/branch.png";
+import headerBg from "@/assets/images/fondo-header.jpeg";
 import { couple, ceremony } from "@/data/wedding.js";
 </script>
 
 <template>
-  <header class="hero">
-    <img :src="branchImage" alt="" class="leaf leaf-tl" aria-hidden="true" />
-    <img :src="branchImage" alt="" class="leaf leaf-tr" aria-hidden="true" />
-    <img :src="branchImage" alt="" class="leaf leaf-bl" aria-hidden="true" />
-
+  <header class="hero" :style="{ backgroundImage: `url(${headerBg})` }">
     <div class="hero-content">
       <div class="title-card">
         <h1>
@@ -32,41 +28,15 @@ import { couple, ceremony } from "@/data/wedding.js";
   position: relative;
   text-align: center;
   padding: calc(var(--spacing-large) * 2) var(--spacing-large) 0;
-  background: var(--background-color);
+  background-color: var(--background-color);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-}
-
-.leaf {
-  position: absolute;
-  width: 280px;
-  height: auto;
-  pointer-events: none;
-  opacity: 0.9;
-  z-index: 0;
-}
-
-.leaf-tl {
-  top: -60px;
-  left: -70px;
-  transform: rotate(-15deg);
-}
-
-.leaf-tr {
-  top: -50px;
-  right: -80px;
-  transform: scaleX(-1) rotate(-10deg);
-}
-
-.leaf-bl {
-  bottom: -40px;
-  left: -90px;
-  width: 220px;
-  transform: rotate(100deg);
-  opacity: 0.6;
 }
 
 .hero-content {
@@ -135,14 +105,10 @@ h3 {
   h1 em { font-size: 1.8rem; }
   h3 { font-size: 1.5rem; }
   .title-card { padding: var(--spacing-medium); }
-  .leaf { width: 180px; }
-  .leaf-bl { width: 140px; }
   .photo-peek { height: 110px; }
 }
 
 @media (max-width: 480px) {
   h1 span { font-size: 1.8rem; }
-  .leaf { width: 130px; }
-  .leaf-bl { display: none; }
 }
 </style>

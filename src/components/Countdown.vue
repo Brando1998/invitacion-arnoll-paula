@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
-import borderOrnamentImage from "@/assets/svg/border-ornament.svg";
+import countdownBg from "@/assets/images/fondo-cuenta-regresiva.jpeg";
 import { countdownDateISO } from "@/data/wedding.js";
 
 // La fecha real se edita en src/data/wedding.js (countdownDateISO)
@@ -43,7 +43,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="countdown-container border-pattern">
+  <div class="countdown-container" :style="{ backgroundImage: `url(${countdownBg})` }">
     <h2 style="text-align: center; margin-bottom: 2rem">¡Falta!</h2>
     <div class="countdown">
       <div class="time-box">
@@ -67,6 +67,14 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+.countdown-container {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: var(--spacing-large) var(--spacing-medium);
+  margin: var(--spacing-large) calc(-2rem - 2vw);
+}
+
 .countdown {
   display: flex;
   justify-content: center;

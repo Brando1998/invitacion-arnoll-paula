@@ -1,15 +1,9 @@
 <script setup>
-import cornerOrnamentImage2 from "@/assets/watercolor/branch.png";
+import fechaBg from "@/assets/images/fonfo-fecha.jpeg";
 import heartImage from "@/assets/svg/heart.svg";
 import partyImage from "@/assets/svg/party.svg";
 import centerBottomOrnamentImage from "@/assets/svg/center-bottom-ornament-accent.svg";
 import { ceremony, reception } from "@/data/wedding.js";
-const cornerStyles = [
-  { top: "-18px", left: "-18px", transform: "rotate(0deg)" }, // Esquina superior izquierda
-  { top: "-18px", right: "-18px", transform: "scaleX(-1)" }, // Esquina superior derecha
-  { bottom: "-18px", left: "-18px", transform: "scaleY(-1)" }, // Esquina inferior izquierda
-  { bottom: "-18px", right: "-18px", transform: "scale(-1, -1)" }, // Esquina inferior derecha
-];
 
 import { ref, onMounted } from "vue";
 
@@ -21,16 +15,8 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="event-details two-columns">
+  <div class="event-details two-columns" :style="{ backgroundImage: `url(${fechaBg})` }">
     <div class="info-container">
-      <img
-        v-for="(style, index) in cornerStyles"
-        :key="index"
-        :src="cornerOrnamentImage2"
-        :style="style"
-        class="corner-ornament"
-        alt="Decoración de esquina"
-      />
       <div class="shadow">
         <img class="ico" :src="heartImage" alt="heart" />
         <span class="title">{{ ceremony.title }}</span>
@@ -48,14 +34,6 @@ onMounted(() => {
       </div>
     </div>
     <div class="info-container" v-if="showInformation">
-      <img
-        v-for="(style, index) in cornerStyles"
-        :key="index"
-        :src="cornerOrnamentImage2"
-        :style="style"
-        class="corner-ornament"
-        alt="Decoración de esquina"
-      />
       <div class="shadow">
         <img class="ico" :src="partyImage" alt="party" />
         <span class="title">{{ reception.title }}</span>
@@ -81,6 +59,10 @@ onMounted(() => {
   margin-top: var(--spacing-large);
   margin-bottom: var(--spacing-large);
   text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: var(--spacing-large) var(--spacing-medium);
 }
 
 .shadow {
@@ -100,13 +82,6 @@ onMounted(() => {
   position: relative;
   background: white;
   border-radius: 20px;
-}
-
-.corner-ornament {
-  position: absolute;
-  width: 70px;
-  height: auto;
-  z-index: 1;
 }
 
 .center-ornament {
