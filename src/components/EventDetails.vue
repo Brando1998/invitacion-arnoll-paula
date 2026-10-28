@@ -1,8 +1,7 @@
 <script setup>
 import fechaBg from "@/assets/images/fonfo-fecha.jpeg";
-import heartImage from "@/assets/svg/heart.svg";
-import partyImage from "@/assets/svg/party.svg";
-import centerBottomOrnamentImage from "@/assets/svg/center-bottom-ornament-accent.svg";
+import ceremonyPhoto from "@/assets/images/ceremonia.jpg";
+import branchImage from "@/assets/watercolor/branch.png";
 import { ceremony, reception } from "@/data/wedding.js";
 
 import { ref, onMounted } from "vue";
@@ -15,39 +14,52 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="event-details two-columns" :style="{ backgroundImage: `url(${fechaBg})` }">
-    <div class="info-container">
-      <div class="shadow">
-        <img class="ico" :src="heartImage" alt="heart" />
-        <span class="title">{{ ceremony.title }}</span>
-        <img
-          :src="centerBottomOrnamentImage"
-          alt="center ornament"
-          class="center-ornament"
-        />
-        <span class="subtitle">Día</span>
-        <span>{{ ceremony.day }}</span>
-        <span class="subtitle">Lugar</span>
-        <span>{{ ceremony.place }}</span>
-        <span class="subtitle">Dirección</span>
-        <span>{{ ceremony.address }}</span>
+  <div class="event-details">
+    <div
+      class="photo-band"
+      :style="{ backgroundImage: `url(${ceremonyPhoto})` }"
+      aria-hidden="true"
+    ></div>
+    <div class="torn-edge" aria-hidden="true"></div>
+
+    <div class="details-content" :style="{ backgroundImage: `url(${fechaBg})` }">
+      <img :src="branchImage" alt="" class="branch branch--left" aria-hidden="true" />
+      <img :src="branchImage" alt="" class="branch branch--right" aria-hidden="true" />
+
+      <div class="info-block">
+        <h2 class="section-title">{{ ceremony.title }}</h2>
+        <div class="columns">
+          <div class="column">
+            <span class="label">Día</span>
+            <span class="value">{{ ceremony.day }}</span>
+          </div>
+          <div class="column">
+            <span class="label">Lugar</span>
+            <span class="value">{{ ceremony.place }}</span>
+          </div>
+          <div class="column">
+            <span class="label">Dirección</span>
+            <span class="value">{{ ceremony.address }}</span>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="info-container" v-if="showInformation">
-      <div class="shadow">
-        <img class="ico" :src="partyImage" alt="party" />
-        <span class="title">{{ reception.title }}</span>
-        <img
-          :src="centerBottomOrnamentImage"
-          alt="center ornament"
-          class="center-ornament"
-        />
-        <span class="subtitle">Día</span>
-        <span>{{ reception.day }}</span>
-        <span class="subtitle">Lugar</span>
-        <span>{{ reception.place }}</span>
-        <span class="subtitle">Dirección</span>
-        <span>{{ reception.address }}</span>
+
+      <div class="info-block info-block--reception" v-if="showInformation">
+        <h2 class="section-title">{{ reception.title }}</h2>
+        <div class="columns">
+          <div class="column">
+            <span class="label">Día</span>
+            <span class="value">{{ reception.day }}</span>
+          </div>
+          <div class="column">
+            <span class="label">Lugar</span>
+            <span class="value">{{ reception.place }}</span>
+          </div>
+          <div class="column">
+            <span class="label">Dirección</span>
+            <span class="value">{{ reception.address }}</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -55,9 +67,35 @@ onMounted(() => {
 
 <style scoped>
 .event-details {
-  color: var(--text-color);
+  position: relative;
   margin-top: var(--spacing-large);
   margin-bottom: var(--spacing-large);
+}
+
+.photo-band {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 220px;
+  background-size: cover;
+  background-position: center 15%;
+}
+
+.torn-edge {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 40px;
+  margin-top: -40px;
+  background-repeat: repeat-x;
+  background-size: 400px 40px;
+  background-image: url("@/assets/svg/torn-edge.svg");
+  pointer-events: none;
+}
+
+.details-content {
+  position: relative;
+  color: var(--text-color);
   text-align: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -65,45 +103,86 @@ onMounted(() => {
   padding: var(--spacing-large) var(--spacing-medium);
 }
 
-.shadow {
-  -webkit-box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.75);
-  margin: var(--spacing-medium);
-  border-radius: 20px;
-  padding: var(--spacing-medium);
+.branch {
+  position: absolute;
+  top: 50%;
+  width: 150px;
+  opacity: 0.85;
+  pointer-events: none;
 }
 
-.ico {
-  width: 100px;
+.branch--left {
+  left: 0;
+  transform: translateY(-50%);
 }
 
-.info-container {
+.branch--right {
+  right: 0;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+.info-block {
   position: relative;
-  background: white;
-  border-radius: 20px;
+  z-index: 1;
 }
 
-.center-ornament {
-  width: 100px;
+.info-block--reception {
+  margin-top: var(--spacing-large);
+  padding-top: var(--spacing-large);
+  border-top: 1px solid rgba(124, 148, 115, 0.3);
 }
 
-.event-details span {
-  display: block;
-  width: 100%;
-  margin-bottom: 1rem;
-}
-
-span {
-  font-family: "Cormorant Garamond", sans-serif;
-}
-
-.title {
+.section-title {
+  color: var(--primary-color);
   font-size: var(--text-2xl);
+  margin-bottom: var(--spacing-large);
 }
 
-.subtitle {
-  margin-top: var(--spacing-medium);
-  font-size: var(--text-xl);
+.columns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-large);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.column {
+  flex: 1 1 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-family: "Cormorant Garamond", serif;
+  font-size: var(--text-sm);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
+
+.value {
+  font-family: "Cormorant Garamond", serif;
+  font-size: var(--text-lg);
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .photo-band {
+    height: 150px;
+  }
+  .torn-edge {
+    height: 28px;
+    margin-top: -28px;
+    background-size: 280px 28px;
+  }
+  .branch {
+    width: 90px;
+    opacity: 0.55;
+  }
+  .columns {
+    gap: var(--spacing-medium);
+  }
 }
 </style>
