@@ -18,8 +18,9 @@ import { couple, ceremony } from "@/data/wedding.js";
       <h3>Te invitamos a celebrar nuestra boda</h3>
     </div>
 
-    <div class="torn-edge" aria-hidden="true"></div>
+    <div class="torn-edge torn-edge--top" aria-hidden="true"></div>
     <div class="photo-peek" :style="{ backgroundImage: `url(${heroImage})` }" aria-hidden="true"></div>
+    <div class="torn-edge torn-edge--bottom" aria-hidden="true"></div>
   </header>
 </template>
 
@@ -85,15 +86,28 @@ h3 {
 
 .torn-edge {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   height: 40px;
   background-repeat: repeat-x;
   background-size: 400px 40px;
   background-image: url("@/assets/svg/torn-edge.svg");
+  pointer-events: none;
+}
+
+/* Se superpone sobre la foto (margen negativo) para que el borde
+   dentado quede recortado contra la imagen y no contra el fondo. */
+.torn-edge--top {
+  margin-bottom: -40px;
+}
+
+.torn-edge--bottom {
+  margin-top: -40px;
 }
 
 .photo-peek {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 220px;
   background-size: cover;
@@ -107,6 +121,8 @@ h3 {
   h3 { font-size: 1.5rem; }
   .title-card { padding: var(--spacing-medium); }
   .torn-edge { height: 28px; background-size: 280px 28px; }
+  .torn-edge--top { margin-bottom: -28px; }
+  .torn-edge--bottom { margin-top: -28px; }
   .photo-peek { height: 150px; }
 }
 
