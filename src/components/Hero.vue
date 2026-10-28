@@ -87,17 +87,18 @@ h3 {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 24px;
+  height: 40px;
   background-repeat: repeat-x;
-  background-size: 300px 24px;
+  background-size: 400px 40px;
   background-image: url("@/assets/svg/torn-edge.svg");
 }
 
 .photo-peek {
   width: 100%;
-  height: 160px;
+  height: 220px;
   background-size: cover;
   background-position: center 35%;
+  background-attachment: fixed;
 }
 
 @media (max-width: 768px) {
@@ -105,8 +106,12 @@ h3 {
   h1 em { font-size: 1.8rem; }
   h3 { font-size: 1.5rem; }
   .title-card { padding: var(--spacing-medium); }
-  .photo-peek { height: 110px; }
+  .torn-edge { height: 28px; background-size: 280px 28px; }
+  .photo-peek { height: 150px; }
 }
+
+/* background-attachment: fixed no es confiable en iOS Safari;
+   se degrada a scroll normal sin romper el diseño. */
 
 @media (max-width: 480px) {
   h1 span { font-size: 1.8rem; }
