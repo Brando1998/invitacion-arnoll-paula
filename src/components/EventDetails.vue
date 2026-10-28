@@ -1,6 +1,5 @@
 <script setup>
 import fechaBg from "@/assets/images/fonfo-fecha.jpeg";
-import ceremonyPhoto from "@/assets/images/ceremonia.jpg";
 import branchImage from "@/assets/watercolor/branch.png";
 import { ceremony, reception } from "@/data/wedding.js";
 
@@ -15,13 +14,6 @@ onMounted(() => {
 </script>
 <template>
   <div class="event-details">
-    <div
-      class="photo-band"
-      :style="{ backgroundImage: `url(${ceremonyPhoto})` }"
-      aria-hidden="true"
-    ></div>
-    <div class="torn-edge" aria-hidden="true"></div>
-
     <div class="details-content" :style="{ backgroundImage: `url(${fechaBg})` }">
       <img :src="branchImage" alt="" class="branch branch--left" aria-hidden="true" />
       <img :src="branchImage" alt="" class="branch branch--right" aria-hidden="true" />
@@ -68,29 +60,7 @@ onMounted(() => {
 <style scoped>
 .event-details {
   position: relative;
-  margin-top: var(--spacing-large);
   margin-bottom: var(--spacing-large);
-}
-
-.photo-band {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 220px;
-  background-size: cover;
-  background-position: center 15%;
-}
-
-.torn-edge {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: 40px;
-  margin-top: -40px;
-  background-repeat: repeat-x;
-  background-size: 400px 40px;
-  background-image: url("@/assets/svg/torn-edge.svg");
-  pointer-events: none;
 }
 
 .details-content {
@@ -169,14 +139,6 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
-  .photo-band {
-    height: 150px;
-  }
-  .torn-edge {
-    height: 28px;
-    margin-top: -28px;
-    background-size: 280px 28px;
-  }
   .branch {
     width: 90px;
     opacity: 0.55;

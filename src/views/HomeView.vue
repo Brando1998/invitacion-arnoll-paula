@@ -24,11 +24,11 @@ onMounted(() => {
       <div id="inicio">
         <Hero />
       </div>
-      <Countdown />
-      <OurStory />
       <div id="event-details">
         <EventDetails />
       </div>
+      <Countdown />
+      <OurStory />
       <div id="gallery">
         <Gallery />
       </div>
