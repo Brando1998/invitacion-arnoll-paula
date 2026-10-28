@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import countdownBg from "@/assets/images/fondo-cuenta-regresiva.jpeg";
-import { countdownDateISO } from "@/data/wedding.js";
+import { countdownDateISO, aboutUs } from "@/data/wedding.js";
 
 // La fecha real se edita en src/data/wedding.js (countdownDateISO)
 const weddingDate = new Date(countdownDateISO).getTime();
@@ -44,20 +44,27 @@ onUnmounted(() => {
 
 <template>
   <div class="countdown-container" :style="{ backgroundImage: `url(${countdownBg})` }">
-    <h2 style="text-align: center; margin-bottom: 2rem">¡Falta!</h2>
+    <div class="intro">
+      <h2 class="intro-title">{{ aboutUs.title }}</h2>
+      <p class="intro-body">{{ aboutUs.body }}</p>
+    </div>
+
     <div class="countdown">
       <div class="time-box">
         <span class="time">{{ timeLeft.days }}</span>
         <span class="label">Días</span>
       </div>
+      <span class="separator" aria-hidden="true">:</span>
       <div class="time-box">
         <span class="time">{{ timeLeft.hours }}</span>
         <span class="label">Horas</span>
       </div>
+      <span class="separator" aria-hidden="true">:</span>
       <div class="time-box">
         <span class="time">{{ timeLeft.minutes }}</span>
         <span class="label">Minutos</span>
       </div>
+      <span class="separator" aria-hidden="true">:</span>
       <div class="time-box">
         <span class="time">{{ timeLeft.seconds }}</span>
         <span class="label">Segundos</span>
@@ -73,52 +80,84 @@ onUnmounted(() => {
   background-position: center;
   padding: var(--spacing-large) var(--spacing-medium);
   margin: var(--spacing-large) 0;
+  text-align: center;
+}
+
+.intro {
+  max-width: 700px;
+  margin: 0 auto var(--spacing-large);
+}
+
+.intro-title {
+  color: var(--primary-color);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--spacing-medium);
+}
+
+.intro-body {
+  font-family: "Cormorant Garamond", serif;
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  color: var(--text-color);
 }
 
 .countdown {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* 🔥 Permite que los bloques bajen a otra fila */
-  gap: var(--spacing-medium);
-  margin-bottom: var(--spacing-large);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--spacing-small);
 }
 
 .time-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--accent-color);
-  padding: var(--spacing-small);
+  background: var(--background-color);
+  padding: var(--spacing-medium) var(--spacing-small);
   border-radius: var(--border-radius);
-  min-width: 80px; /* 🔥 más flexible */
-  flex: 1 1 100px; /* 🔥 permite crecer o encogerse */
-  max-width: 120px; /* 🔥 no se pase de este ancho */
+  min-width: 80px;
+  flex: 0 1 100px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 .time {
-  font-size: var(--text-lg);
-  font-weight: bold;
+  font-family: "Playfair Display", serif;
+  font-size: var(--text-xl);
+  color: var(--primary-color);
 }
 
 .label {
+  margin-top: 0.25rem;
   font-size: var(--text-sm);
   text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-color);
 }
 
-/* 📱 Ajustes para pantallas pequeñas */
+.separator {
+  font-family: "Playfair Display", serif;
+  font-size: var(--text-xl);
+  color: var(--accent-color);
+  padding-top: var(--spacing-medium);
+}
+
 @media (max-width: 480px) {
   .time-box {
     min-width: 70px;
-    max-width: 90px;
-    padding: 0.5rem;
+    padding: var(--spacing-small);
   }
 
   .time {
-    font-size: 1rem;
+    font-size: var(--text-lg);
   }
 
   .label {
     font-size: 0.75rem;
+  }
+
+  .separator {
+    display: none;
   }
 }
 </style>

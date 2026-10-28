@@ -1,12 +1,13 @@
 <script setup>
 import Countdown from "@/components/Countdown.vue";
 import Hero from "@/components/Hero.vue";
+import OurStory from "@/components/OurStory.vue";
 import EventDetails from "@/components/EventDetails.vue";
 import RSVPForm from "@/components/RSVPForm.vue";
+import RSVPCard from "@/components/RSVPCard.vue";
 import Gallery from "@/components/Gallery.vue";
 import PartyDetails from "@/components/PartyDetails.vue";
 import Footer from "@/components/Footer.vue";
-import Gifts from "@/components/Gifts.vue";
 import { ref, onMounted } from "vue";
 
 const showInformation = ref(false);
@@ -24,13 +25,14 @@ onMounted(() => {
         <Hero />
       </div>
       <Countdown />
+      <OurStory />
       <div id="event-details">
         <EventDetails />
       </div>
       <div id="gallery">
         <Gallery />
       </div>
-      <Gifts />
+      <RSVPCard />
       <div v-if="showInformation" id="information">
         <PartyDetails />
       </div>

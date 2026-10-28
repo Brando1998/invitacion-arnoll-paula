@@ -25,6 +25,26 @@ export const reception = {
   address: "[Dirección de la recepción]",
 };
 
+// Texto introductorio que aparece sobre el countdown.
+export const aboutUs = {
+  title: "Juntos es nuestro lugar favorito",
+  body: "[Agrega aquí un párrafo contando su historia o lo que esta boda significa para ustedes.]",
+};
+
+// Palabras de cada uno para la sección "Ella / Él".
+export const story = {
+  she: "[Escribe aquí unas palabras de Paula sobre su historia de amor.]",
+  he: "[Escribe aquí unas palabras de Arnoll sobre su historia de amor.]",
+};
+
+// Botón RSVP: abre WhatsApp con este número y este mensaje ya escrito.
+// Reemplaza whatsappNumber por el número real con indicativo de país
+// (solo dígitos, ej: "573001234567") antes de publicar.
+export const rsvp = {
+  whatsappNumber: "[número de WhatsApp]",
+  message: "¡Hola! Confirmamos nuestra asistencia a la boda de Arnoll y Paula 🎉",
+};
+
 export const party = {
   playlistUrl: "", // Pega aquí el link de embed de Spotify cuando lo tengan
   dressCode: {
@@ -42,10 +62,3 @@ export const virtual = {
   link: "[Link de la videoconferencia]",
   password: "[Contraseña, si aplica]",
 };
-
-export const gifts = [
-  { id: 1, name: "[Idea de regalo 1]" },
-  { id: 2, name: "[Idea de regalo 2]" },
-  { id: 3, name: "[Idea de regalo 3]" },
-  { id: 4, name: "[Idea de regalo 4]" },
-];
