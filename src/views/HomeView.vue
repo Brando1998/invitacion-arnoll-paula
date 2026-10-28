@@ -42,8 +42,3 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
-.content {
-  padding: var(--spacing-medium);
-}
-</style>

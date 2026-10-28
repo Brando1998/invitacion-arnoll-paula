@@ -72,7 +72,7 @@ onUnmounted(() => {
   background-size: cover;
   background-position: center;
   padding: var(--spacing-large) var(--spacing-medium);
-  margin: var(--spacing-large) calc(-2rem - 2vw);
+  margin: var(--spacing-large) 0;
 }
 
 .countdown {

@@ -24,6 +24,5 @@ import Footer from "./components/Footer.vue";
 
 main {
   flex: 1;
-  padding: var(--spacing-medium);
 }
 </style>

@@ -35,7 +35,7 @@ const images = ref([
 .gallery-container {
   text-align: center;
   padding: var(--spacing-medium);
-  margin: var(--spacing-large) calc(-2rem - 2vw);
+  margin: var(--spacing-large) 0;
   -webkit-box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.75);

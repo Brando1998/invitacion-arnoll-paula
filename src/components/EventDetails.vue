@@ -58,8 +58,6 @@ onMounted(() => {
   color: var(--text-color);
   margin-top: var(--spacing-large);
   margin-bottom: var(--spacing-large);
-  margin-left: calc(-2rem - 2vw);
-  margin-right: calc(-2rem - 2vw);
   text-align: center;
   background-repeat: no-repeat;
   background-size: cover;
