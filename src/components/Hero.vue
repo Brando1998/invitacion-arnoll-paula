@@ -28,6 +28,7 @@ import { couple, ceremony } from "@/data/wedding.js";
   position: relative;
   text-align: center;
   padding: calc(var(--spacing-large) * 2) var(--spacing-large) 0;
+  margin: 0 calc(-2rem - 2vw);
   background-color: var(--background-color);
   background-repeat: no-repeat;
   background-size: cover;

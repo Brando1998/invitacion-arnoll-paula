@@ -28,3 +28,10 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+# Fotos originales sin procesar (fuente de los assets usados en src/assets/images,
+# ya recortados/comprimidos). Se quedan localmente, no hace falta versionarlas.
+src/assets/images/DSC_*.jpeg
+src/assets/images/DSC_*.jpg
+src/assets/images/202*.jpg.jpeg
+src/assets/images/Fotos.png
