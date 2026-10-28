@@ -27,7 +27,7 @@ import { couple, ceremony } from "@/data/wedding.js";
 .hero {
   position: relative;
   text-align: center;
-  padding: calc(var(--spacing-large) * 2) var(--spacing-large) 0;
+  padding: calc(var(--spacing-large) * 2) 0 0;
   background-color: var(--background-color);
   background-repeat: no-repeat;
   background-size: cover;
@@ -42,7 +42,7 @@ import { couple, ceremony } from "@/data/wedding.js";
 .hero-content {
   position: relative;
   z-index: 1;
-  padding: var(--spacing-large) 0;
+  padding: var(--spacing-large);
 }
 
 .title-card {
