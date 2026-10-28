@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import dividerImage from "@/assets/watercolor/divider.png";
 import gallery_1 from "@/assets/images/gallery-1.jpg";
 import gallery_2 from "@/assets/images/gallery-2.jpg";
 import gallery_3 from "@/assets/images/gallery-3.jpg";
@@ -18,7 +19,8 @@ const images = ref([
 </script>
 
 <template>
-  <div class="gallery-container border-pattern">
+  <div class="gallery-container">
+    <img :src="dividerImage" alt="" class="divider" aria-hidden="true" />
     <h2>Galería</h2>
     <div class="gallery">
       <div class="gallery-item" v-for="(image, index) in images" :key="index">
@@ -39,15 +41,12 @@ const images = ref([
   box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.75);
 }
 
-.border-pattern {
-  position: relative;
-  background-image: url("@/assets/svg/border-ornament.svg"),
-    url("@/assets/svg/border-ornament.svg");
-  background-repeat: repeat-x, repeat-x;
-  background-size: auto 25px, auto 25px;
-  background-position: top center, bottom center;
-  padding-top: 25px;
-  padding-bottom: 25px;
+.divider {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: 0 auto;
 }
 
 h2 {

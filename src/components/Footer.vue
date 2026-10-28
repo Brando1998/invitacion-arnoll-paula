@@ -1,14 +1,14 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import cornerOrnamentImage2 from "@/assets/svg/corner-ornament-2.svg";
+import cornerOrnamentImage2 from "@/assets/watercolor/branch.png";
 import centerBottomOrnamentImage from "@/assets/svg/center-bottom-ornament-accent.svg";
 import heartImage from "@/assets/svg/heart.svg"; // Puedes usar otro ícono si quieres
 
 const cornerStyles = [
-  { top: "-6px", left: "-6px", transform: "rotate(0deg)" },
-  { top: "-6px", right: "-12px", transform: "rotate(90deg)" },
-  { bottom: "-6px", left: "-12px", transform: "rotate(-90deg)" },
-  { bottom: "-6px", right: "-6px", transform: "rotate(180deg)" },
+  { top: "-18px", left: "-18px", transform: "rotate(0deg)" },
+  { top: "-18px", right: "-18px", transform: "scaleX(-1)" },
+  { bottom: "-18px", left: "-18px", transform: "scaleY(-1)" },
+  { bottom: "-18px", right: "-18px", transform: "scale(-1, -1)" },
 ];
 
 const name = ref("");
@@ -61,8 +61,7 @@ onMounted(() => {
   text-align: center;
   max-width: 600px;
   position: relative;
-  border: 5px dotted var(--accent-color);
-  border-radius: 20px;
+    border-radius: 20px;
 }
 
 .shadow {
@@ -82,8 +81,9 @@ onMounted(() => {
 
 .corner-ornament {
   position: absolute;
-  width: 30px;
+  width: 70px;
   height: auto;
+  z-index: 1;
 }
 
 .center-ornament {

@@ -1,5 +1,6 @@
 <script setup>
 import heroImage from "@/assets/images/hero.jpg";
+import frameImage from "@/assets/watercolor/frame.png";
 import { couple } from "@/data/wedding.js";
 </script>
 
@@ -7,6 +8,7 @@ import { couple } from "@/data/wedding.js";
   <header class="hero" :style="{ backgroundImage: `url(${heroImage})` }">
     <div class="hero-overlay">
       <div class="title-card">
+        <img :src="frameImage" alt="" class="frame-deco" aria-hidden="true" />
         <h1>
           <span>{{ couple.groom }}</span>
           <em>&</em>
@@ -34,17 +36,30 @@ import { couple } from "@/data/wedding.js";
 }
 
 .hero-overlay {
-  background: rgba(251, 249, 241, 0.88);
+  background: rgba(251, 249, 241, 0.9);
   border-radius: 4px;
   padding: var(--spacing-large) calc(var(--spacing-large) * 1.5);
   max-width: 600px;
 }
 
 .title-card {
-  padding: var(--spacing-medium);
-  border: 1.5px solid var(--primary-color);
-  outline: 1px solid var(--primary-color);
-  outline-offset: 6px;
+  position: relative;
+  padding: var(--spacing-large);
+}
+
+.frame-deco {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.title-card h1 {
+  position: relative;
+  z-index: 1;
 }
 
 h1 span {
@@ -88,6 +103,7 @@ h3 {
   h1 em { font-size: 1.8rem; }
   h3 { font-size: 1.5rem; }
   .hero-overlay { padding: var(--spacing-medium); }
+  .title-card { padding: var(--spacing-medium); }
 }
 
 @media (max-width: 480px) {

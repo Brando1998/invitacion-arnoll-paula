@@ -1,10 +1,12 @@
 <script setup>
 import giftIcon from "@/assets/svg/gift.svg";
+import dividerImage from "@/assets/watercolor/divider.png";
 import { gifts } from "@/data/wedding.js";
 </script>
 
 <template>
-    <div class="gifts-container border-pattern">
+    <div class="gifts-container">
+        <img :src="dividerImage" alt="" class="divider" aria-hidden="true" />
         <h2>Regalos</h2>
         <p class="gift-message">
             Tu presencia es el mejor regalo, pero si deseas hacernos un obsequio, aquí tienes algunas ideas que nos encantarían.
@@ -27,6 +29,14 @@ import { gifts } from "@/data/wedding.js";
     padding: var(--spacing-medium);
     margin: var(--spacing-large) calc(-2rem - 2vw);
     box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.75);
+}
+
+.divider {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto;
 }
 
 /* Mensaje amigable */

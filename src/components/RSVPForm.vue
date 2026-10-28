@@ -1,15 +1,15 @@
 <script setup>
-import cornerOrnamentImage2 from "@/assets/svg/corner-ornament-2.svg";
+import cornerOrnamentImage2 from "@/assets/watercolor/branch.png";
 import centerBottomOrnamentImage from "@/assets/svg/center-bottom-ornament-accent.svg";
 import videoImage from "@/assets/svg/notes.svg"; // puedes cambiar por un ícono de cámara si lo tienes
 import { virtual } from "@/data/wedding.js";
 
 // estilos de las esquinas, igual que en los otros bloques
 const cornerStyles = [
-  { top: "-6px", left: "-6px", transform: "rotate(0deg)" },
-  { top: "-6px", right: "-12px", transform: "rotate(90deg)" },
-  { bottom: "-6px", left: "-12px", transform: "rotate(-90deg)" },
-  { bottom: "-6px", right: "-6px", transform: "rotate(180deg)" },
+  { top: "-18px", left: "-18px", transform: "rotate(0deg)" },
+  { top: "-18px", right: "-18px", transform: "scaleX(-1)" },
+  { bottom: "-18px", left: "-18px", transform: "scaleY(-1)" },
+  { bottom: "-18px", right: "-18px", transform: "scale(-1, -1)" },
 ];
 </script>
 
@@ -54,8 +54,7 @@ const cornerStyles = [
 .videoconf-section {
   margin: var(--spacing-large) auto;
   position: relative;
-  border: 5px dotted var(--accent-color);
-  border-radius: 20px;
+    border-radius: 20px;
   text-align: center;
   padding: var(--spacing-medium);
   max-width: 800px;
@@ -67,12 +66,14 @@ const cornerStyles = [
   box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.75);
   border-radius: 20px;
   padding: var(--spacing-medium);
+  background: white;
 }
 
 .corner-ornament {
   position: absolute;
-  width: 30px;
+  width: 70px;
   height: auto;
+  z-index: 1;
 }
 
 .ico {

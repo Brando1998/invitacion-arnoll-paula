@@ -1,14 +1,14 @@
 <script setup>
-import cornerOrnamentImage2 from "@/assets/svg/corner-ornament-2.svg";
+import cornerOrnamentImage2 from "@/assets/watercolor/branch.png";
 import heartImage from "@/assets/svg/heart.svg";
 import partyImage from "@/assets/svg/party.svg";
 import centerBottomOrnamentImage from "@/assets/svg/center-bottom-ornament-accent.svg";
 import { ceremony, reception } from "@/data/wedding.js";
 const cornerStyles = [
-  { top: "-6px", left: "-6px", transform: "rotate(0deg)" }, // Esquina superior izquierda
-  { top: "-6px", right: "-12px", transform: "rotate(90deg)" }, // Esquina superior derecha
-  { bottom: "-6px", left: "-12px", transform: "rotate(-90deg)" }, // Esquina inferior izquierda
-  { bottom: "-6px", right: "-6px", transform: "rotate(180deg)" }, // Esquina inferior derecha
+  { top: "-18px", left: "-18px", transform: "rotate(0deg)" }, // Esquina superior izquierda
+  { top: "-18px", right: "-18px", transform: "scaleX(-1)" }, // Esquina superior derecha
+  { bottom: "-18px", left: "-18px", transform: "scaleY(-1)" }, // Esquina inferior izquierda
+  { bottom: "-18px", right: "-18px", transform: "scale(-1, -1)" }, // Esquina inferior derecha
 ];
 
 import { ref, onMounted } from "vue";
@@ -97,16 +97,16 @@ onMounted(() => {
 }
 
 .info-container {
-  border-bottom: 1px solid var(--accent-color);
   position: relative;
-  border: 5px dotted var(--accent-color);
+  background: white;
   border-radius: 20px;
 }
 
 .corner-ornament {
   position: absolute;
-  width: 30px;
+  width: 70px;
   height: auto;
+  z-index: 1;
 }
 
 .center-ornament {
