@@ -24,20 +24,28 @@ onMounted(() => {
       <div id="inicio">
         <Hero />
       </div>
-      <div id="event-details">
+      <div id="event-details" v-reveal>
         <EventDetails />
       </div>
-      <Countdown />
-      <OurStory />
-      <div id="gallery">
+      <div v-reveal>
+        <Countdown />
+      </div>
+      <div v-reveal>
+        <OurStory />
+      </div>
+      <div id="gallery" v-reveal>
         <Gallery />
       </div>
-      <RSVPCard />
-      <div v-if="showInformation" id="information">
+      <div v-reveal>
+        <RSVPCard />
+      </div>
+      <div v-if="showInformation" id="information" v-reveal>
         <PartyDetails />
       </div>
-      <RSVPForm />
-      <div v-if="showInformation">
+      <div v-reveal>
+        <RSVPForm />
+      </div>
+      <div v-if="showInformation" v-reveal>
         <Footer />
       </div>
     </div>

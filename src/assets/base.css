@@ -56,6 +56,26 @@ p, li, span { font-size: var(--text-base); }
   transform: scaleY(-1);
 }
 
+/* 🎬 Animación de aparición al hacer scroll (ver src/directives/reveal.js) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 
 /* 🏗️ Diseño responsivo */
 .container {

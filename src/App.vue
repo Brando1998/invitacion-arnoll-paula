@@ -10,7 +10,11 @@ import Footer from "./components/Footer.vue";
 
     <!-- Área principal -->
     <main>
-      <RouterView />
+      <RouterView v-slot="{ Component }">
+        <Transition name="route-fade" mode="out-in">
+          <component :is="Component" />
+        </Transition>
+      </RouterView>
     </main>
   </div>
 </template>
@@ -24,5 +28,19 @@ import Footer from "./components/Footer.vue";
 
 main {
   flex: 1;
+}
+</style>
+
+<style>
+/* Sin "scoped": las clases de <Transition> se aplican al nodo raíz
+   de la vista enrutada, que no lleva el atributo de scope de App.vue. */
+.route-fade-enter-active,
+.route-fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.route-fade-enter-from,
+.route-fade-leave-to {
+  opacity: 0;
 }
 </style>
